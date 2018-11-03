@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		B503FB1C218C2DF700DEFF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB1B218C2DF700DEFF95 /* AppDelegate.swift */; };
-		B503FB1E218C2DF700DEFF95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB1D218C2DF700DEFF95 /* ViewController.swift */; };
 		B503FB21218C2DF700DEFF95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B503FB1F218C2DF700DEFF95 /* Main.storyboard */; };
 		B503FB23218C2DF900DEFF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B503FB22218C2DF900DEFF95 /* Assets.xcassets */; };
 		B503FB26218C2DF900DEFF95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B503FB24218C2DF900DEFF95 /* LaunchScreen.storyboard */; };
+		B503FB2E218E29B100DEFF95 /* EateriesTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB2D218E29B100DEFF95 /* EateriesTableTableViewController.swift */; };
+		B503FB30218E2DC100DEFF95 /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB2F218E2DC100DEFF95 /* EateriesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B503FB18218C2DF700DEFF95 /* UITableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B503FB1B218C2DF700DEFF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B503FB1D218C2DF700DEFF95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B503FB20218C2DF700DEFF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B503FB22218C2DF900DEFF95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B503FB25218C2DF900DEFF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B503FB27218C2DF900DEFF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B503FB2D218E29B100DEFF95 /* EateriesTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableTableViewController.swift; sourceTree = "<group>"; };
+		B503FB2F218E2DC100DEFF95 /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				B503FB1B218C2DF700DEFF95 /* AppDelegate.swift */,
-				B503FB1D218C2DF700DEFF95 /* ViewController.swift */,
+				B503FB2F218E2DC100DEFF95 /* EateriesTableViewCell.swift */,
 				B503FB1F218C2DF700DEFF95 /* Main.storyboard */,
+				B503FB2D218E29B100DEFF95 /* EateriesTableTableViewController.swift */,
 				B503FB22218C2DF900DEFF95 /* Assets.xcassets */,
 				B503FB24218C2DF900DEFF95 /* LaunchScreen.storyboard */,
 				B503FB27218C2DF900DEFF95 /* Info.plist */,
@@ -135,8 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B503FB1E218C2DF700DEFF95 /* ViewController.swift in Sources */,
+				B503FB2E218E29B100DEFF95 /* EateriesTableTableViewController.swift in Sources */,
 				B503FB1C218C2DF700DEFF95 /* AppDelegate.swift in Sources */,
+				B503FB30218E2DC100DEFF95 /* EateriesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
