@@ -93,18 +93,44 @@ class EateriesTableViewController: UITableViewController {
      */
     
     
+    /*
      // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     self.restaurantImages.remove(at: indexPath.row)
+     self.restaurantNames.remove(at: indexPath.row)
+     self.restaurantIsVisited.remove(at: indexPath.row)
+     //tableView.reloadData()
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
+            let defaultText = "Я сейчас в " + self.restaurantNames[indexPath.row]
+            if let image = UIImage(named: self.restaurantImages[indexPath.row]) {
+                let activityController = UIActivityViewController(activityItems: [defaultText, image], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+        }
+        share.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        
+        let delete  = UITableViewRowAction(style: .default, title: "Удалить") { (action, indexPath) in
+            
             self.restaurantImages.remove(at: indexPath.row)
             self.restaurantNames.remove(at: indexPath.row)
             self.restaurantIsVisited.remove(at: indexPath.row)
-            //tableView.reloadData()
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            
         }
+        delete.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        
+        return [delete, share]
     }
     
     
