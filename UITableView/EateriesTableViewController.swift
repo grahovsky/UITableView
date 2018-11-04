@@ -53,6 +53,9 @@ class EateriesTableViewController: UITableViewController {
     }
     
     func showAlert(tableView: UITableView, indexPath: IndexPath) {
+        
+        return
+        
         let ac = UIAlertController(title: nil, message:  "Выберите действие", preferredStyle: .actionSheet)
         
         let call = UIAlertAction(title: "Позвонить +7 911 111-111\(indexPath.row)", style: .default) { (action: UIAlertAction) in
@@ -149,14 +152,21 @@ class EateriesTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let dvc = segue.destination as! EateryDetailViewController
+                dvc.imageName = self.restaurantImages[indexPath.row]
+            }
+        }
+        
      }
-     */
+    
     
 }

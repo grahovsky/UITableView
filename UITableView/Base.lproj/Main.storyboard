@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s0S-Wn-m62">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ePY-G7-Lpm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Eateries Table View Controller-->
+        <!--Мои рестораны-->
         <scene sceneID="ot8-Gg-sLP">
             <objects>
                 <tableViewController id="s0S-Wn-m62" customClass="EateriesTableViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,6 +81,7 @@
                                     <outlet property="nameLabel" destination="PAv-cA-G0c" id="mCo-ZX-OlG"/>
                                     <outlet property="thumbnailImageView" destination="cJi-AT-tvW" id="xci-f3-53N"/>
                                     <outlet property="typeLabel" destination="0DB-FF-XyK" id="fUo-E3-mEc"/>
+                                    <segue destination="xJg-k2-KEP" kind="show" identifier="detailSegue" id="z6S-lm-kBO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -88,10 +90,58 @@
                             <outlet property="delegate" destination="s0S-Wn-m62" id="4di-9d-44t"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Мои рестораны" id="GfH-r8-ct5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWa-pS-dfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5" y="132"/>
+            <point key="canvasLocation" x="722" y="132"/>
+        </scene>
+        <!--Eatery Detail View Controller-->
+        <scene sceneID="rhC-Dg-E3t">
+            <objects>
+                <viewController id="xJg-k2-KEP" customClass="EateryDetailViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ep4-Ua-vO5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CLc-JW-iX9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CLc-JW-iX9" firstAttribute="top" secondItem="SY2-MS-4un" secondAttribute="top" id="2JX-yu-fc0"/>
+                            <constraint firstItem="CLc-JW-iX9" firstAttribute="bottom" secondItem="SY2-MS-4un" secondAttribute="bottom" id="3zs-c1-Tu1"/>
+                            <constraint firstItem="CLc-JW-iX9" firstAttribute="trailing" secondItem="SY2-MS-4un" secondAttribute="trailing" id="Z3V-Fe-iyH"/>
+                            <constraint firstItem="CLc-JW-iX9" firstAttribute="leading" secondItem="SY2-MS-4un" secondAttribute="leading" id="evY-bH-u6C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SY2-MS-4un"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="CLc-JW-iX9" id="Lpb-E8-pHO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AFj-nH-PZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485.5999999999999" y="131.78410794602701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0CH-Ng-7O7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ePY-G7-Lpm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pfm-Ha-chi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s0S-Wn-m62" kind="relationship" relationship="rootViewController" id="M8K-b9-daC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3QR-C7-5io" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="131.78410794602701"/>
         </scene>
     </scenes>
 </document>
