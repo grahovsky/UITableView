@@ -12,8 +12,13 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
-   
+    @IBOutlet weak var rateButton: UIButton!
+    
     var restaurant: Restaurant?
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = false
@@ -30,6 +35,10 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
 //        tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
 //        tableView.separatorColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        rateButton.layer.cornerRadius = 5
+        rateButton.layer.borderWidth = 1
+        rateButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         title = restaurant!.name
     }
