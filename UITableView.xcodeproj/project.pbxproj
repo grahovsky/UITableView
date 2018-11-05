@@ -16,6 +16,7 @@
 		B503FB32218F0A7500DEFF95 /* EateryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB31218F0A7500DEFF95 /* EateryDetailViewController.swift */; };
 		B503FB34218F2FBE00DEFF95 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB33218F2FBE00DEFF95 /* Restaurant.swift */; };
 		B503FB36218F3CCC00DEFF95 /* EateryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503FB35218F3CCC00DEFF95 /* EateryDetailTableViewCell.swift */; };
+		B568CB202190C89C00D10F7C /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568CB1F2190C89C00D10F7C /* RateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B503FB31218F0A7500DEFF95 /* EateryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateryDetailViewController.swift; sourceTree = "<group>"; };
 		B503FB33218F2FBE00DEFF95 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		B503FB35218F3CCC00DEFF95 /* EateryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B568CB1F2190C89C00D10F7C /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				B503FB31218F0A7500DEFF95 /* EateryDetailViewController.swift */,
 				B503FB35218F3CCC00DEFF95 /* EateryDetailTableViewCell.swift */,
+				B568CB1F2190C89C00D10F7C /* RateViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				B503FB1C218C2DF700DEFF95 /* AppDelegate.swift in Sources */,
 				B503FB32218F0A7500DEFF95 /* EateryDetailViewController.swift in Sources */,
 				B503FB30218E2DC100DEFF95 /* EateriesTableViewCell.swift in Sources */,
+				B568CB202190C89C00D10F7C /* RateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

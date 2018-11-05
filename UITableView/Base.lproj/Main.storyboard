@@ -182,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1457" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--Rate View Controller-->
         <scene sceneID="e01-oF-pjE">
             <objects>
-                <viewController id="FDU-1f-6hv" sceneMemberID="viewController">
+                <viewController id="FDU-1f-6hv" customClass="RateViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zRD-Du-r0C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,15 +204,47 @@
                                     <segue destination="7sg-GI-Bgs" kind="unwind" unwindAction="unwindSegueWithSegue:" id="Tdf-Id-HQg"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="zIR-2D-e5x">
+                                <rect key="frame" x="0.0" y="264" width="375" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eub-C3-qXo">
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="85"/>
+                                        <state key="normal" image="bad"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGH-hH-jap">
+                                        <rect key="frame" x="132" y="0.0" width="111" height="85"/>
+                                        <state key="normal" image="good"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbX-XI-OfN">
+                                        <rect key="frame" x="264" y="0.0" width="111" height="85"/>
+                                        <state key="normal" image="brilliant"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Как Вам у нас?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6n-zy-u1R">
+                                <rect key="frame" x="77" y="157" width="221" height="42.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="221" id="Lie-5z-s56"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hnU-3V-mCT" firstAttribute="leading" secondItem="djE-RA-Mms" secondAttribute="leading" id="2RM-Uj-QiQ"/>
+                            <constraint firstItem="zIR-2D-e5x" firstAttribute="leading" secondItem="djE-RA-Mms" secondAttribute="leading" id="JDr-bh-VHJ"/>
                             <constraint firstItem="hnU-3V-mCT" firstAttribute="bottom" secondItem="djE-RA-Mms" secondAttribute="bottom" id="Kx3-cv-F3F"/>
+                            <constraint firstItem="S6n-zy-u1R" firstAttribute="centerX" secondItem="hnU-3V-mCT" secondAttribute="centerX" id="Nac-d9-uDc"/>
                             <constraint firstItem="djE-RA-Mms" firstAttribute="trailing" secondItem="Ry6-6W-x5f" secondAttribute="trailing" constant="18" id="Ol1-E6-Mqg"/>
                             <constraint firstItem="Ry6-6W-x5f" firstAttribute="top" secondItem="djE-RA-Mms" secondAttribute="top" constant="18" id="RXg-vQ-UXW"/>
+                            <constraint firstItem="zIR-2D-e5x" firstAttribute="centerX" secondItem="hnU-3V-mCT" secondAttribute="centerX" id="dhj-qz-5hr"/>
                             <constraint firstItem="hnU-3V-mCT" firstAttribute="top" secondItem="zRD-Du-r0C" secondAttribute="top" id="gUh-6c-y17"/>
+                            <constraint firstItem="zIR-2D-e5x" firstAttribute="top" secondItem="S6n-zy-u1R" secondAttribute="bottom" constant="64.5" id="ohl-Zn-n1r"/>
                             <constraint firstItem="hnU-3V-mCT" firstAttribute="trailing" secondItem="djE-RA-Mms" secondAttribute="trailing" id="qUq-cl-5jn"/>
+                            <constraint firstItem="S6n-zy-u1R" firstAttribute="top" secondItem="Ry6-6W-x5f" secondAttribute="bottom" constant="79" id="wKj-JC-bPX"/>
+                            <constraint firstItem="djE-RA-Mms" firstAttribute="trailing" secondItem="zIR-2D-e5x" secondAttribute="trailing" id="y6M-YS-zFa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="djE-RA-Mms"/>
                     </view>
@@ -242,6 +274,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bad" width="85" height="85"/>
+        <image name="brilliant" width="85" height="85"/>
         <image name="close" width="50" height="50"/>
         <image name="good" width="85" height="85"/>
         <image name="rateBackground" width="200" height="286"/>
