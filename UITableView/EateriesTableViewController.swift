@@ -11,7 +11,7 @@ import UIKit
 class EateriesTableViewController: UITableViewController {
     
     var restaurants: [Restaurant] = [
-    Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Уфа", image: "ogonek.jpg", isVisited: false),
+    Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Уфа, бульвар Хадии Давлетшиной 21. many many many many text for 3 lines", image: "ogonek.jpg", isVisited: false),
     Restaurant(name: "Елу", type: "ресторан", location: "Уфа", image: "elu.jpg", isVisited: false),
     Restaurant(name: "Bonsai", type: "ресторан", location: "Уфа", image: "bonsai.jpg", isVisited: false),
     Restaurant(name: "Дастархан", type: "ресторан", location: "Уфа", image: "dastarhan.jpg", isVisited: false),
@@ -63,6 +63,8 @@ class EateriesTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurants[indexPath.row].name
+        cell.locationLabel.text = restaurants[indexPath.row].location
+        cell.typeLabel.text = restaurants[indexPath.row].type
         
         cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
         
@@ -70,9 +72,8 @@ class EateriesTableViewController: UITableViewController {
     }
     
     func showAlert(tableView: UITableView, indexPath: IndexPath) {
-        
-        return
-        
+
+        /*
         let ac = UIAlertController(title: nil, message:  "Выберите действие", preferredStyle: .actionSheet)
         
         let call = UIAlertAction(title: "Позвонить +7 911 111-111\(indexPath.row)", style: .default) { (action: UIAlertAction) in
@@ -95,6 +96,7 @@ class EateriesTableViewController: UITableViewController {
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         ac.addAction(cancel)
         present(ac, animated: true, completion: nil)
+        */
     }
     
     
