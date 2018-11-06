@@ -18,6 +18,10 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         
+        guard let svc = segue.source as? RateViewController else { return }
+        guard let rating = svc.restRating else {return}
+        
+        rateButton.setImage(UIImage(named: rating), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -16,6 +16,19 @@ class RateViewController: UIViewController {
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var brilliantButton: UIButton!
     
+    var restRating: String?
+    
+    @IBAction func rateRestaurant(sender: UIButton) {
+        switch sender.tag {
+        case 0: restRating = "bad"
+        case 1: restRating = "good"
+        case 2: restRating = "brilliant"
+        default: break
+        }
+        
+        performSegue(withIdentifier: "unwindSegueToDVC", sender: sender)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
 //        UIView.animate(withDuration: 0.4) {
 //            self.ratingStackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
