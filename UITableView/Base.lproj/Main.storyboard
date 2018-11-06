@@ -86,6 +86,30 @@
             </objects>
             <point key="canvasLocation" x="722" y="132"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="hGd-KM-9WU">
+            <objects>
+                <viewController id="w9U-Y6-Bwl" customClass="MapViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uEV-hx-go4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eQ8-kZ-9va">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="e7L-Wm-EP0"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="eQ8-kZ-9va" id="5ro-gi-aSd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D0l-tH-QLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="-566.26686656671666"/>
+        </scene>
         <!--Eatery Detail View Controller-->
         <scene sceneID="rhC-Dg-E3t">
             <objects>
@@ -160,11 +184,24 @@
                                     <segue destination="FDU-1f-6hv" kind="showDetail" id="q98-Ai-2tj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTQ-3g-xg3">
+                                <rect key="frame" x="317" y="130" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JhM-vi-gWA"/>
+                                    <constraint firstAttribute="width" secondItem="vTQ-3g-xg3" secondAttribute="height" multiplier="1:1" id="vEP-2o-HAP"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <segue destination="w9U-Y6-Bwl" kind="show" identifier="mapSegue" id="9Vz-9b-wha"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uFy-pN-JV3" firstAttribute="leading" secondItem="SY2-MS-4un" secondAttribute="leading" id="3sK-UY-PU7"/>
                             <constraint firstItem="NLC-UZ-cP2" firstAttribute="top" secondItem="SY2-MS-4un" secondAttribute="top" constant="8" id="4mx-hQ-SdT"/>
+                            <constraint firstItem="vTQ-3g-xg3" firstAttribute="centerX" secondItem="NLC-UZ-cP2" secondAttribute="centerX" id="8jU-ah-kdH"/>
+                            <constraint firstItem="vTQ-3g-xg3" firstAttribute="top" secondItem="NLC-UZ-cP2" secondAttribute="bottom" constant="8" id="Fcd-iY-Egf"/>
                             <constraint firstItem="uFy-pN-JV3" firstAttribute="trailing" secondItem="SY2-MS-4un" secondAttribute="trailing" id="ezL-Rr-5qX"/>
                             <constraint firstItem="SY2-MS-4un" firstAttribute="trailing" secondItem="NLC-UZ-cP2" secondAttribute="trailing" constant="8" id="fEy-VF-hpP"/>
                             <constraint firstItem="uFy-pN-JV3" firstAttribute="top" secondItem="SY2-MS-4un" secondAttribute="top" id="vT2-63-fev"/>
@@ -174,6 +211,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="HuM-9H-BI1" id="sYB-NU-tJ5"/>
+                        <outlet property="mapButton" destination="vTQ-3g-xg3" id="sZf-lG-sXu"/>
                         <outlet property="rateButton" destination="NLC-UZ-cP2" id="n3j-p9-4Rq"/>
                         <outlet property="tableView" destination="uFy-pN-JV3" id="6UV-Ri-jou"/>
                     </connections>
@@ -293,6 +331,7 @@
         <image name="brilliant" width="85" height="85"/>
         <image name="close" width="50" height="50"/>
         <image name="good" width="85" height="85"/>
+        <image name="map" width="50" height="50"/>
         <image name="rateBackground" width="200" height="286"/>
     </resources>
 </document>

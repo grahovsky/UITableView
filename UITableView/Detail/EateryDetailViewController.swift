@@ -13,6 +13,7 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var mapButton: UIButton!
     
     var restaurant: Restaurant?
     
@@ -40,9 +41,17 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
 //        tableView.separatorColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        rateButton.layer.cornerRadius = 5
-        rateButton.layer.borderWidth = 1
-        rateButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let buttons = [rateButton, mapButton]
+        
+        for button in buttons {
+            
+            guard let button = button else { break }
+            
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            
+        }
         
         title = restaurant!.name
     }
