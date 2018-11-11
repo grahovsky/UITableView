@@ -10,7 +10,9 @@ import UIKit
 
 class EateriesTableViewController: UITableViewController {
     
-    var restaurants: [Restaurant] = [
+    var restaurants: [Restaurant] = []
+    
+    /*
     Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Уфа, бульвар Хадии Давлетшиной 21", image: "ogonek.jpg", isVisited: false),
     Restaurant(name: "Елу", type: "ресторан", location: "Уфа", image: "elu.jpg", isVisited: false),
     Restaurant(name: "Bonsai", type: "ресторан", location: "Уфа", image: "bonsai.jpg", isVisited: false),
@@ -26,6 +28,7 @@ class EateriesTableViewController: UITableViewController {
     Restaurant(name: "Love&Life", type: "ресторан", location: "Уфа", image: "love.jpg", isVisited: false),
     Restaurant(name: "Шок", type: "ресторан", location: "Уфа", image: "shok.jpg", isVisited: false),
     Restaurant(name: "Бочка", type: "ресторан", location:  "Уфа", image: "bochka.jpg", isVisited: false)]
+    */
     
     @IBAction func close(segue: UIStoryboardSegue) {
         
@@ -66,7 +69,8 @@ class EateriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
         
-        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        //cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image! as Data)
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurants[indexPath.row].name
@@ -141,8 +145,9 @@ class EateriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
-            let defaultText = "Я сейчас в " + self.restaurants[indexPath.row].name
-            if let image = UIImage(named: self.restaurants[indexPath.row].image) {
+            let defaultText = "Я сейчас в " + self.restaurants[indexPath.row].name!
+            //if let image = UIImage(named: self.restaurants[indexPath.row].image) {
+            if let image = UIImage(data: self.restaurants[indexPath.row].image! as Data) {
                 let activityController = UIActivityViewController(activityItems: [defaultText, image], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)
             }
