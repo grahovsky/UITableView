@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EateriesTableViewController: UITableViewController {
+class EateriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     
     var restaurants: [Restaurant] = []
@@ -46,6 +46,8 @@ class EateriesTableViewController: UITableViewController {
          
             fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             
+            fetchResultsController.delegate = self
+            
             do {
                 try fetchResultsController.performFetch()
                 restaurants = fetchResultsController.fetchedObjects!
@@ -56,6 +58,32 @@ class EateriesTableViewController: UITableViewController {
         }
         
     }
+    
+    // MARK: - Fetch results controller delegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert: guard let indexPath = newIndexPath else { break }
+        tableView.insertRows(at: [indexPath], with: .fade)
+        case .delete: guard let indexPath = newIndexPath else { break }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        case .update: guard let indexPath = newIndexPath else { break }
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        default:
+            tableView.reloadData()
+        }
+        
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
     
     // MARK: - Table view data source
     
