@@ -19,6 +19,7 @@
 		B568CB202190C89C00D10F7C /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568CB1F2190C89C00D10F7C /* RateViewController.swift */; };
 		B568CB222191DB6300D10F7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568CB212191DB6300D10F7C /* MapViewController.swift */; };
 		B568CB252191DBEC00D10F7C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B568CB242191DBEC00D10F7C /* MapKit.framework */; };
+		B568CB27219862C700D10F7C /* NewEateryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B568CB1F2190C89C00D10F7C /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		B568CB212191DB6300D10F7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B568CB242191DBEC00D10F7C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEateryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +75,12 @@
 				B503FB1B218C2DF700DEFF95 /* AppDelegate.swift */,
 				B503FB2F218E2DC100DEFF95 /* EateriesTableViewCell.swift */,
 				B503FB2D218E29B100DEFF95 /* EateriesTableViewController.swift */,
-				B503FB1F218C2DF700DEFF95 /* Main.storyboard */,
 				B568CB212191DB6300D10F7C /* MapViewController.swift */,
+				B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */,
 				B503FB37218F3CD600DEFF95 /* Detail */,
 				B503FB33218F2FBE00DEFF95 /* Restaurant.swift */,
 				B503FB22218C2DF900DEFF95 /* Assets.xcassets */,
+				B503FB1F218C2DF700DEFF95 /* Main.storyboard */,
 				B503FB24218C2DF900DEFF95 /* LaunchScreen.storyboard */,
 				B503FB27218C2DF900DEFF95 /* Info.plist */,
 			);
@@ -184,6 +187,7 @@
 				B503FB1C218C2DF700DEFF95 /* AppDelegate.swift in Sources */,
 				B503FB32218F0A7500DEFF95 /* EateryDetailViewController.swift in Sources */,
 				B503FB30218E2DC100DEFF95 /* EateriesTableViewCell.swift in Sources */,
+				B568CB27219862C700D10F7C /* NewEateryTableViewController.swift in Sources */,
 				B568CB202190C89C00D10F7C /* RateViewController.swift in Sources */,
 				B568CB222191DB6300D10F7C /* MapViewController.swift in Sources */,
 			);
