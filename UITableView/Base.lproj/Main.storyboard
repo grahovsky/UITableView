@@ -248,6 +248,9 @@
                                                             <state key="normal" title="Да">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="togglelsVisitedPressed:" destination="PUs-l0-MTH" eventType="touchUpInside" id="ZVR-uE-fbb"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-pF-07M">
                                                             <rect key="frame" x="79" y="0.0" width="71" height="33"/>
@@ -256,6 +259,9 @@
                                                             <state key="normal" title="Нет">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="togglelsVisitedPressed:" destination="PUs-l0-MTH" eventType="touchUpInside" id="2lb-gb-j5B"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -281,12 +287,22 @@
                     <navigationItem key="navigationItem" id="SWU-4f-TwE">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yRc-Wi-ySl">
                             <connections>
-                                <segue destination="Q1c-b1-9WJ" kind="unwind" unwindAction="closeWithSegue:" id="7rI-ne-LfG"/>
+                                <segue destination="Q1c-b1-9WJ" kind="unwind" identifier="unwindSegueFromNewEatery" unwindAction="closeWithSegue:" id="7rI-ne-LfG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qq7-a7-vab">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="PUs-l0-MTH" id="uwS-4f-b7I"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adressTextField" destination="d5m-x8-CR7" id="rqh-c7-1ak"/>
                         <outlet property="imageView" destination="Q8H-Pi-GyK" id="f5X-UR-LwM"/>
+                        <outlet property="nameTextField" destination="Nf4-DN-bkO" id="fgK-ze-GjY"/>
+                        <outlet property="noButton" destination="wWj-pF-07M" id="HPL-II-19X"/>
+                        <outlet property="typeTextField" destination="T3m-Z0-VTU" id="WnL-Lq-LPO"/>
+                        <outlet property="yesButton" destination="aoj-6c-fhH" id="RFb-1w-vFa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1I7-j1-3Ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
