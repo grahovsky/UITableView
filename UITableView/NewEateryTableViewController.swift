@@ -16,12 +16,38 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
-    
+    var isVisited = false
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if nameTextField.text == "" || adressTextField.text == "" || typeTextField.text == "" {
-            print("не все поля заполнены!")
+            
+            let alertController = UIAlertController(title: "Не все поля заполнены", message: nil, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+            
         } else {
+            
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+                let restaurant = Restaurant(context: context)
+                restaurant.name = nameTextField.text
+                restaurant.location = adressTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.isVisited = isVisited
+                
+                if let image = imageView.image {
+                    restaurant.image = image.pngData()
+                }
+                
+                do {
+                    try context.save()
+                    print("Сохранение выполнено")
+                } catch let error as NSError {
+                    print("Не удалось сохранить данные \(error), \(error.userInfo)")
+                }
+                
+            }
+            
             performSegue(withIdentifier: "unwindSegueFromNewEatery", sender: self)
         }
     }
@@ -30,9 +56,11 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
         if sender == yesButton {
             sender.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
             noButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            isVisited = true
         } else if sender == noButton {
             sender.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             yesButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            isVisited = false
         }
     }
     
