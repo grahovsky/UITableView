@@ -191,6 +191,19 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
             self.restaurants.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+            
+                let objectToDelete = self.fetchResultsController.object(at: indexPath)
+                context.delete(objectToDelete)
+                
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                
+            }
+            
         }
         delete.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         
