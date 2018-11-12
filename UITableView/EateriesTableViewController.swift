@@ -11,9 +11,10 @@ import CoreData
 
 class EateriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    
     var restaurants: [Restaurant] = []
     var fetchResultsController: NSFetchedResultsController<Restaurant>!
+    var searchController: UISearchController!
+    var filteredResultArray: [Restaurant] = []
     
     @IBAction func close(segue: UIStoryboardSegue) {
         
@@ -21,6 +22,12 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    func filterContentFor(searchText text: String) {
+        filteredResultArray = restaurants.filter{ (restaurant) -> Bool in
+            return (restaurant.name?.lowercased().contains(text.lowercased()))! // только те элементы имеющие name в нижнем регистре содержащий введенный текст в нижнем регистре
+        }
     }
     
     override func viewDidLoad() {
@@ -57,6 +64,16 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
             
         }
         
+        searchController = UISearchController(searchResultsController: nil) // результаты отображаются на главном экране
+        searchController.searchResultsUpdater = self // какой контроллер будет обновлять результаты необходим протокол UISearchResultsUpdating
+        searchController.dimsBackgroundDuringPresentation = false // затемнение отключаем
+        searchController.searchBar.delegate = self
+        searchController.searchBar.barTintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1) // цвет бара
+        searchController.searchBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // цвет текста
+        
+        tableView.tableHeaderView = searchController.searchBar // хеадеру таблицы присваиваем поисковую панель
+     
+        definesPresentationContext = true // чтобы searchController не переходил на следующий экран
     }
     
     // MARK: - Fetch results controller delegate
@@ -94,22 +111,38 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurants.count
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+           return filteredResultArray.count
+        } else {
+            return restaurants.count
+        }
     }
     
+    func restaurantToDisplayAt(indexPath: IndexPath) -> Restaurant {
+        let restaurant: Restaurant
+        if searchController.isActive && searchController.searchBar.text != "" {
+            restaurant = filteredResultArray[indexPath.row]
+        } else {
+            restaurant = restaurants[indexPath.row]
+        }
+        return restaurant
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
         
-        //cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
-        cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image! as Data)
+        let restaurant = restaurantToDisplayAt(indexPath: indexPath) // выбираем элемент с учетом поиска
+        
+//        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        cell.thumbnailImageView.image = UIImage(data: restaurant.image! as Data)
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
-        cell.nameLabel.text = restaurants[indexPath.row].name
-        cell.locationLabel.text = restaurants[indexPath.row].location
-        cell.typeLabel.text = restaurants[indexPath.row].type
+        cell.nameLabel.text = restaurant.name
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
         
-        cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
+        cell.accessoryType = restaurant.isVisited ? .checkmark : .none
         
         return cell
     }
@@ -236,10 +269,34 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! EateryDetailViewController
-                dvc.restaurant = self.restaurants[indexPath.row]
+                dvc.restaurant = restaurantToDisplayAt(indexPath: indexPath) // с учетом поиска
             }
         }
         
+    }
+    
+}
+
+extension EateriesTableViewController: UISearchResultsUpdating {
+   
+    // срабатывает в любой момент времени когда что-то вводится в строку поиска
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentFor(searchText: searchController.searchBar.text!)
+        tableView.reloadData()
+    }
+    
+}
+
+extension EateriesTableViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            navigationController?.hidesBarsOnSwipe = false // убираем скрытие при свайпе когда редактируется поиск
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        navigationController?.hidesBarsOnSwipe = true // возвращаем скрытие при свайпе когда редактирование поиска закончено
     }
     
 }
