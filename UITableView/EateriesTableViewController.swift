@@ -11,7 +11,7 @@ import CoreData
 
 class EateriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var restaurants: [Restaurant] = []
+    var restaurants: [Restaurant] = [] // class Restaurant создается в Eateries.xcdatamodeld в Data model inspector "NSManagedObject"
     var fetchResultsController: NSFetchedResultsController<Restaurant>!
     var searchController: UISearchController!
     var filteredResultArray: [Restaurant] = []
@@ -44,14 +44,14 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest() // создаем запрос выборки
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true) // дескриптор сортировки по полю name
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
          
-            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil) // контроллер для управления результатом запроса выборки данных
             
             fetchResultsController.delegate = self
             
@@ -77,28 +77,31 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     // MARK: - Fetch results controller delegate
+   
+    // вызывается перед тем как контроллер поменяет свой контент
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
+        tableView.beginUpdates() // предупреждает tableView что будут обновления
     }
     
+    // вызывается в зависимости от того как были изменены данные контроллера
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
         case .insert: guard let indexPath = newIndexPath else { break }
-        tableView.insertRows(at: [indexPath], with: .fade)
+        tableView.insertRows(at: [indexPath], with: .fade) // добавление ряда
         case .delete: guard let indexPath = newIndexPath else { break }
-        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.deleteRows(at: [indexPath], with: .fade) // удаление ряда
         case .update: guard let indexPath = newIndexPath else { break }
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.reloadRows(at: [indexPath], with: .fade) // обновление
         default:
-            tableView.reloadData()
+            tableView.reloadData() // перегружаем весь tableView
         }
         
-        restaurants = controller.fetchedObjects as! [Restaurant]
+        restaurants = controller.fetchedObjects as! [Restaurant] // обновляем restaurants данными в контоллере
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+        tableView.endUpdates() // предупредили что изменения закончились
     }
     
     
@@ -135,7 +138,7 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         let restaurant = restaurantToDisplayAt(indexPath: indexPath) // выбираем элемент с учетом поиска
         
 //        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
-        cell.thumbnailImageView.image = UIImage(data: restaurant.image! as Data)
+        cell.thumbnailImageView.image = UIImage(data: restaurant.image! as Data) // image - binary data кастим до Data
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurant.name
@@ -226,11 +229,12 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
             
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
             
+                // выбираем объект, который хотим удалить
                 let objectToDelete = self.fetchResultsController.object(at: indexPath)
-                context.delete(objectToDelete)
+                context.delete(objectToDelete) // удаляем объект из контекста
                 
                 do {
-                    try context.save()
+                    try context.save() // сохраняем контекст без удаленного объекта
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }

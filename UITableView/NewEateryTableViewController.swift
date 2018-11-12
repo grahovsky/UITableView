@@ -28,8 +28,9 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
             
         } else {
             
+            // получаем context для последующего сохранения
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
-                let restaurant = Restaurant(context: context)
+                let restaurant = Restaurant(context: context) // создаем экземпляр класса в контексте
                 restaurant.name = nameTextField.text
                 restaurant.location = adressTextField.text
                 restaurant.type = typeTextField.text
@@ -40,7 +41,7 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
                 }
                 
                 do {
-                    try context.save()
+                    try context.save() // сохраняем контекст
                     print("Сохранение выполнено")
                 } catch let error as NSError {
                     print("Не удалось сохранить данные \(error), \(error.userInfo)")

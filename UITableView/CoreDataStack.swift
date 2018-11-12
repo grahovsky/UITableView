@@ -21,7 +21,7 @@ lazy var persistentContainer: NSPersistentContainer = {
      application to it. This property is optional since there are legitimate
      error conditions that could cause the creation of the store to fail.
      */
-    let container = NSPersistentContainer(name: "Eateries")
+    let container = NSPersistentContainer(name: "Eateries") // название проекта
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
         if let error = error as NSError? {
             // Replace this implementation with code to handle the error appropriately.
@@ -44,6 +44,9 @@ lazy var persistentContainer: NSPersistentContainer = {
 // MARK: - Core Data Saving support
 
 func saveContext () {
+    
+    // сохраняется контекст, описание в Eateries.xcdatamodeld - определяет как хранятся данные
+    
     let context = persistentContainer.viewContext
     if context.hasChanges {
         do {
