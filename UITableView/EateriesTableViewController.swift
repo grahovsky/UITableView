@@ -165,6 +165,10 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func showAlert(tableView: UITableView, indexPath: IndexPath) {
 
         /*
@@ -193,12 +197,6 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         */
     }
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(tableView: tableView, indexPath: indexPath)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
     
     /*
      // Override to support conditional editing of the table view.
