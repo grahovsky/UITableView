@@ -76,6 +76,16 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         definesPresentationContext = true // чтобы searchController не переходил на следующий экран
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "pageViewController") as? PageViewController {
+            
+            present(pageViewController, animated: true, completion: nil)
+            
+        }
+    }
+    
     // MARK: - Fetch results controller delegate
    
     // вызывается перед тем как контроллер поменяет свой контент

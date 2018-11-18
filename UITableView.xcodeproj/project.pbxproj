@@ -20,6 +20,8 @@
 		B568CB222191DB6300D10F7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568CB212191DB6300D10F7C /* MapViewController.swift */; };
 		B568CB252191DBEC00D10F7C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B568CB242191DBEC00D10F7C /* MapKit.framework */; };
 		B568CB27219862C700D10F7C /* NewEateryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */; };
+		B56AD51721A1A53D0015A344 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56AD51621A1A53D0015A344 /* PageViewController.swift */; };
+		B56AD51921A1A5600015A344 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56AD51821A1A5600015A344 /* ContentViewController.swift */; };
 		B5908F1B219895AC005FA6CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5908F1A219895AC005FA6CD /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		B568CB212191DB6300D10F7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B568CB242191DBEC00D10F7C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEateryTableViewController.swift; sourceTree = "<group>"; };
+		B56AD51621A1A53D0015A344 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		B56AD51821A1A5600015A344 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		B5908F1A219895AC005FA6CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,7 @@
 				B568CB212191DB6300D10F7C /* MapViewController.swift */,
 				B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */,
 				B50820D1219896EF0098979A /* Eateries.xcdatamodeld */,
+				B56AD51A21A1A56E0015A344 /* Page */,
 				B503FB37218F3CD600DEFF95 /* Detail */,
 				B503FB22218C2DF900DEFF95 /* Assets.xcassets */,
 				B503FB1F218C2DF700DEFF95 /* Main.storyboard */,
@@ -106,6 +111,15 @@
 				B568CB242191DBEC00D10F7C /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B56AD51A21A1A56E0015A344 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				B56AD51821A1A5600015A344 /* ContentViewController.swift */,
+				B56AD51621A1A53D0015A344 /* PageViewController.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +200,9 @@
 			files = (
 				B503FB36218F3CCC00DEFF95 /* EateryDetailTableViewCell.swift in Sources */,
 				B50820D3219896EF0098979A /* Eateries.xcdatamodeld in Sources */,
+				B56AD51721A1A53D0015A344 /* PageViewController.swift in Sources */,
 				B503FB2E218E29B100DEFF95 /* EateriesTableViewController.swift in Sources */,
+				B56AD51921A1A5600015A344 /* ContentViewController.swift in Sources */,
 				B503FB1C218C2DF700DEFF95 /* AppDelegate.swift in Sources */,
 				B503FB32218F0A7500DEFF95 /* EateryDetailViewController.swift in Sources */,
 				B5908F1B219895AC005FA6CD /* CoreDataStack.swift in Sources */,
