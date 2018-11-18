@@ -24,6 +24,7 @@
 		B56AD51921A1A5600015A344 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56AD51821A1A5600015A344 /* ContentViewController.swift */; };
 		B5908F1B219895AC005FA6CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5908F1A219895AC005FA6CD /* CoreDataStack.swift */; };
 		B5F51F9221A1D38400B62C18 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51F9121A1D38400B62C18 /* AboutTableViewController.swift */; };
+		B5F51F9421A1DD6B00B62C18 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51F9321A1DD6B00B62C18 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B56AD51821A1A5600015A344 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		B5908F1A219895AC005FA6CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B5F51F9121A1D38400B62C18 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		B5F51F9321A1DD6B00B62C18 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				B568CB212191DB6300D10F7C /* MapViewController.swift */,
 				B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */,
 				B5F51F9121A1D38400B62C18 /* AboutTableViewController.swift */,
+				B5F51F9321A1DD6B00B62C18 /* WebViewController.swift */,
 				B56AD51A21A1A56E0015A344 /* Page */,
 				B50820D1219896EF0098979A /* Eateries.xcdatamodeld */,
 				B503FB37218F3CD600DEFF95 /* Detail */,
@@ -212,6 +215,7 @@
 				B5908F1B219895AC005FA6CD /* CoreDataStack.swift in Sources */,
 				B503FB30218E2DC100DEFF95 /* EateriesTableViewCell.swift in Sources */,
 				B568CB27219862C700D10F7C /* NewEateryTableViewController.swift in Sources */,
+				B5F51F9421A1DD6B00B62C18 /* WebViewController.swift in Sources */,
 				B568CB202190C89C00D10F7C /* RateViewController.swift in Sources */,
 				B568CB222191DB6300D10F7C /* MapViewController.swift in Sources */,
 			);

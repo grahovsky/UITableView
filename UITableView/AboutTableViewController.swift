@@ -53,9 +53,30 @@ class AboutTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0..<firstSectionLinks.count:
+                performSegue(withIdentifier: "showWebPageSegue", sender: self)
+            default: break
+            }
+        default:
+            break
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWebPageSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let dvc = segue.destination as! WebViewController
+                dvc.url = URL(string: firstSectionLinks[indexPath.row])
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
