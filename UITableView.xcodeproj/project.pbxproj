@@ -23,6 +23,7 @@
 		B56AD51721A1A53D0015A344 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56AD51621A1A53D0015A344 /* PageViewController.swift */; };
 		B56AD51921A1A5600015A344 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56AD51821A1A5600015A344 /* ContentViewController.swift */; };
 		B5908F1B219895AC005FA6CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5908F1A219895AC005FA6CD /* CoreDataStack.swift */; };
+		B5F51F9221A1D38400B62C18 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51F9121A1D38400B62C18 /* AboutTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B56AD51621A1A53D0015A344 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B56AD51821A1A5600015A344 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		B5908F1A219895AC005FA6CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B5F51F9121A1D38400B62C18 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +86,9 @@
 				B503FB2D218E29B100DEFF95 /* EateriesTableViewController.swift */,
 				B568CB212191DB6300D10F7C /* MapViewController.swift */,
 				B568CB26219862C700D10F7C /* NewEateryTableViewController.swift */,
-				B50820D1219896EF0098979A /* Eateries.xcdatamodeld */,
+				B5F51F9121A1D38400B62C18 /* AboutTableViewController.swift */,
 				B56AD51A21A1A56E0015A344 /* Page */,
+				B50820D1219896EF0098979A /* Eateries.xcdatamodeld */,
 				B503FB37218F3CD600DEFF95 /* Detail */,
 				B503FB22218C2DF900DEFF95 /* Assets.xcassets */,
 				B503FB1F218C2DF700DEFF95 /* Main.storyboard */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B503FB36218F3CCC00DEFF95 /* EateryDetailTableViewCell.swift in Sources */,
+				B5F51F9221A1D38400B62C18 /* AboutTableViewController.swift in Sources */,
 				B50820D3219896EF0098979A /* Eateries.xcdatamodeld in Sources */,
 				B56AD51721A1A53D0015A344 /* PageViewController.swift in Sources */,
 				B503FB2E218E29B100DEFF95 /* EateriesTableViewController.swift in Sources */,
