@@ -29,22 +29,50 @@ class PopularTableViewController: UITableViewController {
     
     func getCloudRecords() {
         
+//        let predicate = NSPredicate(value: true)
+//        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+//
+//        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
+//            guard error == nil else {
+//                print(error)
+//                return
+//            }
+//            if let records = records {
+//                self.restaurants = records
+//                // т.к. код выполняется в фоне, обновление нужно вызвать в основном потоке
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+        
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        query.sortDescriptors = [sort]
         
-        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
-            guard error == nil else {
-                print(error)
-                return
-            }
-            if let records = records {
-                self.restaurants = records
-                // т.к. код выполняется в фоне, обновление нужно вызвать в основном потоке
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        let queryOperation = CKQueryOperation(query: query)
+        queryOperation.desiredKeys = ["name", "image"]
+        queryOperation.resultsLimit = 10
+        queryOperation.queuePriority = .veryHigh
+        queryOperation.recordFetchedBlock = { (record: CKRecord!) in
+            if let record = record {
+                self.restaurants.append(record)
             }
         }
+        queryOperation.queryCompletionBlock = { (cursor, error) in
+            guard error == nil else {
+                print("Не удалось получить записи из iCloud: \(error?.localizedDescription)")
+                return
+            }
+            
+            print("Записи успешно получены из iCloue")
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        publicDataBase.add(queryOperation)
         
     }
     
