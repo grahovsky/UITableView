@@ -29,22 +29,22 @@ class PopularTableViewController: UITableViewController {
     
     func getCloudRecords() {
         
-//        let predicate = NSPredicate(value: true)
-//        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
-//
-//        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
-//            guard error == nil else {
-//                print(error)
-//                return
-//            }
-//            if let records = records {
-//                self.restaurants = records
-//                // т.к. код выполняется в фоне, обновление нужно вызвать в основном потоке
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
+        //        let predicate = NSPredicate(value: true)
+        //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+        //
+        //        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
+        //            guard error == nil else {
+        //                print(error)
+        //                return
+        //            }
+        //            if let records = records {
+        //                self.restaurants = records
+        //                // т.к. код выполняется в фоне, обновление нужно вызвать в основном потоке
+        //                DispatchQueue.main.async {
+        //                    self.tableView.reloadData()
+        //                }
+        //            }
+        //        }
         
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Restaurant", predicate: predicate)
@@ -52,7 +52,7 @@ class PopularTableViewController: UITableViewController {
         query.sortDescriptors = [sort]
         
         let queryOperation = CKQueryOperation(query: query)
-        queryOperation.desiredKeys = ["name", "image"]
+        queryOperation.desiredKeys = ["name"]
         queryOperation.resultsLimit = 10
         queryOperation.queuePriority = .veryHigh
         queryOperation.recordFetchedBlock = { (record: CKRecord!) in
@@ -66,7 +66,7 @@ class PopularTableViewController: UITableViewController {
                 return
             }
             
-            print("Записи успешно получены из iCloue")
+            print("Записи успешно получены из iCloud®")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -96,17 +96,34 @@ class PopularTableViewController: UITableViewController {
         let restaurant = restaurants[indexPath.row]
         cell.textLabel?.text = restaurant.object(forKey: "name") as? String
         
-        if let image = restaurant.object(forKey: "image") {
-            let image = image as! CKAsset
-            let data = try? Data(contentsOf: image.fileURL)
-            if let data = data {
-                cell.imageView?.image = UIImage(data: data)
+        cell.imageView?.image = UIImage(named: "photo")
+        let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: [restaurant.recordID])
+        fetchRecordsOperation.desiredKeys = ["image"]
+        fetchRecordsOperation.queuePriority = .veryHigh
+        fetchRecordsOperation.perRecordCompletionBlock = { (record, recordID, error) in
+            guard error == nil else {
+                print("Не удалось получить изображение из iCloud: \(error?.localizedDescription)")
+                return
+            }
+            
+            if let record = record {
+                if let image = record.object(forKey: "image")  {
+                    let image = image as! CKAsset
+                    let data = try? Data(contentsOf: image.fileURL)
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            cell.imageView?.image = UIImage(data: data)
+                        }
+                    }
+                }
             }
         }
         
+        publicDataBase.add(fetchRecordsOperation)
+        
         return cell
     }
- 
+    
     
     /*
      // Override to support conditional editing of the table view.
