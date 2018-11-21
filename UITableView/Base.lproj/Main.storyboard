@@ -550,16 +550,16 @@
             </objects>
             <point key="canvasLocation" x="943.20000000000005" y="131.78410794602701"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Популярные-->
         <scene sceneID="Rwj-eA-T81">
             <objects>
-                <tableViewController id="oRi-oy-QNL" sceneMemberID="viewController">
+                <tableViewController id="oRi-oy-QNL" customClass="PopularTableViewController" customModule="UITableView" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZRR-6Z-Ftu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eym-fD-60v">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="eym-fD-60v">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eym-fD-60v" id="fFg-t8-6SW">
@@ -573,7 +573,7 @@
                             <outlet property="delegate" destination="oRi-oy-QNL" id="FPY-ab-ek0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ObV-Ts-PF2"/>
+                    <navigationItem key="navigationItem" title="Популярные" id="ObV-Ts-PF2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ak-Jz-ns5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -671,7 +671,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fA-GZ-eq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95" y="901"/>
+            <point key="canvasLocation" x="124" y="865"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="2mX-IN-Scg">
@@ -783,6 +783,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="twz-qh-UhE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E0X-IN-O5t">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
