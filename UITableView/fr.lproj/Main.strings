@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "0DB-FF-XyK"; */
+"0DB-FF-XyK.text" = "Type";
+
+/* Class = "UITabBarItem"; title = "О нас"; ObjectID = "0r7-8n-yQJ"; */
+"0r7-8n-yQJ.title" = "О нас";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "1iH-Ht-nUn"; */
+"1iH-Ht-nUn.text" = "Value";
+
+/* Class = "UILabel"; text = "Название"; ObjectID = "2nf-bB-2qZ"; */
+"2nf-bB-2qZ.text" = "Название";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Bax-s3-iK3"; */
+"Bax-s3-iK3.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Мои рестораны"; ObjectID = "GfH-r8-ct5"; */
+"GfH-r8-ct5.title" = "Мои рестораны";
+
+/* Class = "UILabel"; text = "header"; ObjectID = "HUx-NL-iKD"; */
+"HUx-NL-iKD.text" = "header";
+
+/* Class = "UITextField"; placeholder = "Название ресторана"; ObjectID = "Nf4-DN-bkO"; */
+"Nf4-DN-bkO.placeholder" = "Название ресторана";
+
+/* Class = "UINavigationItem"; title = "Популярные"; ObjectID = "ObV-Ts-PF2"; */
+"ObV-Ts-PF2.title" = "Популярные";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "PAv-cA-G0c"; */
+"PAv-cA-G0c.text" = "Name";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "PO3-27-kYD"; */
+"PO3-27-kYD.text" = "Location";
+
+/* Class = "UILabel"; text = "Адрес"; ObjectID = "Q3m-5S-zuL"; */
+"Q3m-5S-zuL.text" = "Адрес";
+
+/* Class = "UILabel"; text = "Key"; ObjectID = "QIA-qs-JMU"; */
+"QIA-qs-JMU.text" = "Key";
+
+/* Class = "UILabel"; text = "Как Вам у нас?"; ObjectID = "S6n-zy-u1R"; */
+"S6n-zy-u1R.text" = "Как Вам у нас?";
+
+/* Class = "UITextField"; placeholder = "Тип ресторана"; ObjectID = "T3m-Z0-VTU"; */
+"T3m-Z0-VTU.placeholder" = "Тип ресторана";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "VAP-8S-RcI"; */
+"VAP-8S-RcI.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Да"; ObjectID = "aoj-6c-fhH"; */
+"aoj-6c-fhH.normalTitle" = "Да";
+
+/* Class = "UILabel"; text = "Вы там были?"; ObjectID = "apu-cA-f2H"; */
+"apu-cA-f2H.text" = "Вы там были?";
+
+/* Class = "UILabel"; text = "subheader"; ObjectID = "cw4-Lw-tf7"; */
+"cw4-Lw-tf7.text" = "subheader";
+
+/* Class = "UITextField"; placeholder = "Адрес ресторана"; ObjectID = "d5m-x8-CR7"; */
+"d5m-x8-CR7.placeholder" = "Адрес ресторана";
+
+/* Class = "UINavigationItem"; title = "О нас"; ObjectID = "ddg-dl-AO4"; */
+"ddg-dl-AO4.title" = "О нас";
+
+/* Class = "UILabel"; text = "Тип"; ObjectID = "fa3-oS-q4w"; */
+"fa3-oS-q4w.text" = "Тип";
+
+/* Class = "UIButton"; normalTitle = "Нет"; ObjectID = "wWj-pF-07M"; */
+"wWj-pF-07M.normalTitle" = "Нет";

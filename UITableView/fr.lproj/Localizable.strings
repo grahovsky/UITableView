@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  UITableView
+
+  Created by Konstantin on 22/11/2018.
+  Copyright © 2018 Konstantin. All rights reserved.
+*/
+
+"Источник фотографии" = "Photos Source";
+"Камера" = "Camera";
+"Фото" = "photo";
+"Отмена" = "annulation";
+
+//project add localization
+//file inspector add localization

@@ -142,14 +142,14 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
         
         if indexPath.row == 0 {
             
-            let alertController = UIAlertController(title: "Источник фотографии", message: nil, preferredStyle: .actionSheet)
-            let cameraAction = UIAlertAction(title: "Камера", style: .default) { (action) in
+            let alertController = UIAlertController(title: NSLocalizedString("Источник фотографии", comment: "Источник фотографии"), message: nil, preferredStyle: .actionSheet)
+            let cameraAction = UIAlertAction(title: NSLocalizedString("Камера", comment: "Камера"), style: .default) { (action) in
                 self.chooseImagePickerAction(source: .camera)
             }
-            let photoLibAction = UIAlertAction(title: "Фото", style: .default) { (action) in
+            let photoLibAction = UIAlertAction(title: NSLocalizedString("Фото", comment: "Фото"), style: .default) { (action) in
                 self.chooseImagePickerAction(source: .photoLibrary)
             }
-            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Отмена", comment: "Отмена"), style: .cancel, handler: nil)
             alertController.addAction(cameraAction)
             alertController.addAction(photoLibAction)
             alertController.addAction(cancelAction)
