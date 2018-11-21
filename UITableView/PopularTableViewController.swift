@@ -13,6 +13,7 @@ class PopularTableViewController: UITableViewController {
     
     var restaurants: [CKRecord] = []
     let publicDataBase = CKContainer.default().publicCloudDatabase
+    var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,19 @@ class PopularTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        spinner = UIActivityIndicatorView(style: .whiteLarge)
+        spinner.color = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        tableView.addSubview(spinner)
+        
+//        spinner.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+//        spinner.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
+       
+        NSLayoutConstraint(item: spinner, attribute: .centerX, relatedBy: .equal, toItem: tableView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: spinner, attribute: .centerY, relatedBy: .equal, toItem: tableView, attribute: .centerY, multiplier: 0.8, constant: 0).isActive = true
         
         getCloudRecords()
         
@@ -70,6 +84,7 @@ class PopularTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            
         }
         
         publicDataBase.add(queryOperation)
@@ -113,6 +128,7 @@ class PopularTableViewController: UITableViewController {
                     if let data = data {
                         DispatchQueue.main.async {
                             cell.imageView?.image = UIImage(data: data)
+                            self.spinner.stopAnimating()
                         }
                     }
                 }
