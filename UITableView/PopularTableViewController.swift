@@ -77,7 +77,7 @@ class PopularTableViewController: UITableViewController {
         }
         queryOperation.queryCompletionBlock = { (cursor, error) in
             guard error == nil else {
-                print("Не удалось получить записи из iCloud: \(error?.localizedDescription)")
+                print("Не удалось получить записи из iCloud: \(error?.localizedDescription ?? "")")
                 return
             }
             
@@ -125,23 +125,23 @@ class PopularTableViewController: UITableViewController {
             fetchRecordsOperation.queuePriority = .veryHigh
             fetchRecordsOperation.perRecordCompletionBlock = { (record, recordID, error) in
                 guard error == nil else {
-                    print("Не удалось получить изображение из iCloud: \(error?.localizedDescription)")
+                    print("Не удалось получить изображение из iCloud: \(error?.localizedDescription ?? "")")
                     return
                 }
                 
-                if let record = record {
-                    if let image = record.object(forKey: "image")  {
-                        let image = image as! CKAsset
-                        let data = try? Data(contentsOf: image.fileURL)
-                        if let data = data {
-                            DispatchQueue.main.async {
-                                cell.imageView?.image = UIImage(data: data)
-                                self.cache.setObject(image.fileURL as AnyObject, forKey: restaurant.recordID)
-                                self.spinner.stopAnimating()
-                            }
-                        }
-                    }
+                guard let record = record else { return }
+                guard let image = record.object(forKey: "image")  else { return }
+                let imageAsset = image as! CKAsset
+                guard let data = try? Data(contentsOf: imageAsset.fileURL) else { return }
+                
+                DispatchQueue.main.async {
+                    cell.imageView?.image = UIImage(data: data)
+                    self.cache.setObject(imageAsset.fileURL as AnyObject, forKey: restaurant.recordID)
+                    self.spinner.stopAnimating()
                 }
+                
+                
+                
             }
             
             publicDataBase.add(fetchRecordsOperation)
