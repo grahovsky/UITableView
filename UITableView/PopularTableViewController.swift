@@ -38,11 +38,18 @@ class PopularTableViewController: UITableViewController {
         NSLayoutConstraint(item: spinner, attribute: .centerX, relatedBy: .equal, toItem: tableView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: spinner, attribute: .centerY, relatedBy: .equal, toItem: tableView, attribute: .centerY, multiplier: 0.8, constant: 0).isActive = true
         
+        refreshControl = UIRefreshControl()
+        refreshControl?.backgroundColor = .white
+        refreshControl?.tintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        refreshControl?.addTarget(self, action: #selector(getCloudRecords), for: .valueChanged)
+        
         getCloudRecords()
         
     }
     
-    func getCloudRecords() {
+    @objc func getCloudRecords() {
+        
+        restaurants = []
         
         //        let predicate = NSPredicate(value: true)
         //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
@@ -84,6 +91,7 @@ class PopularTableViewController: UITableViewController {
             print("Записи успешно получены из iCloud®")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
             
         }
